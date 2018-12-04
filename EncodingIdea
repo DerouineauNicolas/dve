@@ -1,0 +1,14 @@
+Base Script for image -> video
+
+#imagetovideo.sh
+ffmpeg -i image-%03d.dpx video.ffv1
+
+If gnu parrallel is used:
+
+Considering N images needs to be encoded through P jobs
+
+Split the images accross P folder (indexed by temporal order), shift all the image index values to have index zero in each folder, and then run:
+
+parallel -transfer return {.}.ffv1 ::: dir_*/imagetovideo.sh
+
+and then concat ffv1 videos in the final one.
