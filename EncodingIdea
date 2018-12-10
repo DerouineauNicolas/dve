@@ -12,3 +12,6 @@ Split the images accross P folder (indexed by temporal order), shift all the ima
 parallel -transfer return {.}.ffv1 ::: dir_*/imagetovideo.sh
 
 and then concat ffv1 videos in the final one.
+
+Doc:
+https://en.wikibooks.org/wiki/FFMPEG_An_Intermediate_Guide/image_sequence#Making_a_video_from_an_Image_Sequence

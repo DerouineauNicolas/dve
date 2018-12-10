@@ -1,0 +1,6 @@
+ffmpeg -i %06d.dpx -t 60 -vcodec ffv1 -level 3 -threads 4 -coder 1 -context 1 -g 1 -slices 24 -slicecrc 1 -r 24 test.mkv
+cd /sledge/sledge03/SLEDGE03_D2/footage/IN-HUMBLE-GUISE/GRAB/1920x1080/
+ffmpeg -framerate 24 -start_number 864000 -i IN_HUMBLE_GUISE_%07d.dpx -t 328 -vcodec ffv1 -level 3 -threads 16 -coder 1 -context 1 -g 1 -slices 24 -slicecrc 1 -r 24 /nas_restau/nasrestau6/footage/IN-HUMBLE-GUISE/PRORES/test1.mkv
+ffmpeg -framerate 24 -start_number 871890 -i IN_HUMBLE_GUISE_%07d.dpx -t 328 -vcodec ffv1 -level 3 -threads 16 -coder 1 -context 1 -g 1 -slices 24 -slicecrc 1 -r 24 /nas_restau/nasrestau6/footage/IN-HUMBLE-GUISE/PRORES/test2.mkv
+ffmpeg -framerate 24 -start_number 879780 -i IN_HUMBLE_GUISE_%07d.dpx -t 328 -vcodec ffv1 -level 3 -threads 16 -coder 1 -context 1 -g 1 -slices 24 -slicecrc 1 -r 24 /nas_restau/nasrestau6/footage/IN-HUMBLE-GUISE/PRORES/test3.mkv
+ffmpeg -framerate 24 -start_number 887670 -i IN_HUMBLE_GUISE_%07d.dpx -t 328 -vcodec ffv1 -level 3 -threads 16 -coder 1 -context 1 -g 1 -slices 24 -slicecrc 1 -r 24 /nas_restau/nasrestau6/footage/IN-HUMBLE-GUISE/PRORES/test4.mkv

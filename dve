@@ -12,7 +12,7 @@ DATA_OPTS="-map 0 -c:s copy -c:t copy -c:d copy -vn -an"
 SUFFIX="_new.mkv"
 SERVERS=":"
 LEN=300
-OUTDIR=`mktemp -d`
+OUTDIR="temp"
 VERBOSE="error"
 # override defaults in a ~/.dverc file
 if [ -f ~/.dverc ]; then
@@ -21,8 +21,8 @@ fi
 
 function on_finish() {
 	echo "Cleaning up temporary working files"
-  cd "$CWD"
-	rm -rf "${OUTDIR}"/
+    cd "$CWD"
+	#rm -rf "${OUTDIR}"/
 	echo "Finished cleaning"
 }
 
@@ -120,6 +120,9 @@ echo "Running parallel encoding jobs"
 PAR_OPTS="--no-notice --gnu -j 1 -S ${SERVERS} --eta --retries 2 --nice 10"
 PAR_OPTS="${PAR_OPTS} --workdir ... --transfer --return {.}.enc"
 ENC_OPTS="-y -v ${VERBOSE} -i {} ${OPTS} -f matroska {.}.enc"
+
+globstuff=chunk-*.orig
+echo "parallel ${PAR_OPTS} ${ENC} ${ENC_OPTS} ::: ${globstuff}" 
 
 parallel ${PAR_OPTS} ${ENC} ${ENC_OPTS} ::: chunk-*.orig
 
